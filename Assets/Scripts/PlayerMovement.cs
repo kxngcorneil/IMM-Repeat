@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Rigidbody rb;
 
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce = 5f;
 
     [SerializeField] private Transform groundCheck;
@@ -21,19 +21,21 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] public float gems = 0f;
 
+      [SerializeField] public float health = 3f;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
-     
+
+
     }
 
     private void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-         
-         if (Input.GetButtonDown("Jump") && IsGrounded())
+
+        if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
         }
@@ -42,8 +44,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f, rb.linearVelocity.z);
         }
-        
-      
+
+
     }
 
     private void FixedUpdate()
@@ -65,5 +67,17 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics.CheckSphere(groundCheck.position, 0.1f, groundLayer);
+    }
+
+    private void Sprint()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            moveSpeed = 25f; // Increase speed when sprinting
+        }
+        else
+        {
+            moveSpeed = 15f; // Reset to normal speed
+        }
     }
 }
