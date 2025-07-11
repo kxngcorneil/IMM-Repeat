@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -5,20 +6,15 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private bool isFacingRight = true;
-
     private float horizontal;
-
     private float vertical;
 
     [SerializeField] private Rigidbody rb;
-
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce = 5f;
 
     [SerializeField] private Transform groundCheck;
-
     [SerializeField] private LayerMask groundLayer;
-
     [SerializeField] public float gems = 0f;
 
       [SerializeField] public float health = 3f;
@@ -26,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
 
 
     }
@@ -34,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+        Sprint();
+        Flip();
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
@@ -69,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         return Physics.CheckSphere(groundCheck.position, 0.1f, groundLayer);
     }
 
+    
     private void Sprint()
     {
         if (Input.GetKey(KeyCode.LeftShift))

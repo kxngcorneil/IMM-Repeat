@@ -5,6 +5,7 @@ public class coinCount : MonoBehaviour
 {
     public PlayerMovement player;
     public TextMeshProUGUI coinCounter;
+    
  
     void Update()
     {

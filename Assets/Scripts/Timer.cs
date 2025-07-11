@@ -6,7 +6,9 @@ using TMPro;
 
 public class Timer: MonoBehaviour {
 
-    public float timeRemaining = 60.0f;
+    [SerializeField] private float timeRemaining = 60.0f;
+
+    [SerializeField] private float lowTime = 10.0f;
 
     public Time time;
 
@@ -23,14 +25,13 @@ public class Timer: MonoBehaviour {
         }
 
 
-        timerText.text = timeRemaining.ToString("F0"); // Display time with 0 decimal places
+        timerText.text = timeRemaining.ToString("F0"); //  0 decimal places
 
     }
 
-void timerEnded()
-{
-   //do your stuff here.
-}
+    void timerEnded()
+    {
 
 
+    }
 }
