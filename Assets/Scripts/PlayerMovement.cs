@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -6,7 +7,11 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private bool isFacingRight = true;
+
+    public Transform respawnPoint; // Reference to the respawn point
     private float horizontal;
+
+    private bool getHit = false;
     private float vertical;
 
     [SerializeField] private Rigidbody rb;
@@ -17,12 +22,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] public float gems = 0f;
 
-      [SerializeField] public float health = 3f;
+    [SerializeField] public float health = 3f;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
+
 
 
     }
@@ -68,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         return Physics.CheckSphere(groundCheck.position, 0.1f, groundLayer);
     }
 
-    
+
     private void Sprint()
     {
         if (Input.GetKey(KeyCode.LeftShift))
@@ -78,6 +83,21 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             moveSpeed = 15f; // Reset to normal speed
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Hazard"))
+        {
+            
+            transform.position = respawnPoint.position;
+            health -= 1;
+            Debug.Log("Player hit a bullet! Health: " + health);
+
+            
+            // Reset velocity to prevent weird physics after teleport
+            rb.linearVelocity = Vector3.zero;
         }
     }
 }

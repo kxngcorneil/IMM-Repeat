@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Spike : MonoBehaviour
+public class Hazards : MonoBehaviour
 {
     public Transform respawnPoint; // Reference to the respawn point
     
