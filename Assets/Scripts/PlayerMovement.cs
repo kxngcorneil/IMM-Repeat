@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] public float health = 3f;
 
+    [SerializeField] private Animator animator;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -42,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
+            animator.SetInteger("Movement", 2);
         }
 
         if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
@@ -55,6 +58,14 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.linearVelocity = new Vector3(horizontal * moveSpeed, rb.linearVelocity.y, rb.linearVelocity.z);
+        if (horizontal != 0)
+        {
+            animator.SetInteger("Movement", 1);
+        }
+        else if (horizontal == 0 && IsGrounded()) 
+        {
+            animator.SetInteger("Movement", 0);
+        }
     }
 
     private void Flip()
@@ -70,13 +81,15 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics.CheckSphere(groundCheck.position, 0.1f, groundLayer);
+        bool grounded = Physics.CheckSphere(groundCheck.position, 0.1f, groundLayer);
+        animator.SetInteger("Movement", grounded ? 0 : 2);
+        return grounded;
     }
 
 
     private void Sprint()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift)) 
         {
             moveSpeed = 25f; // Increase speed when sprinting
         }

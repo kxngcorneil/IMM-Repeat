@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 159922082}
-  player: {fileID: 1167985574}
+  player: {fileID: 547780986}
 --- !u!136 &18684883
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -274,6 +274,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &193620968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 193620969}
+  m_Layer: 0
+  m_Name: ground check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &193620969
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193620968}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0109, y: -0.0664, z: -0.08448038}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 547780983}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &264492279
 GameObject:
@@ -576,7 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b86aa6ea7a32244a90ba8966cdda148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1167985572}
+  target: {fileID: 547780983}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,7 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c34da88ea66eb74ea7c74ef35db659c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1167985574}
+  player: {fileID: 547780986}
   healthText: {fileID: 512461836}
 --- !u!114 &512461836
 MonoBehaviour:
@@ -1107,13 +1138,17 @@ GameObject:
   - component: {fileID: 547780983}
   - component: {fileID: 547780982}
   - component: {fileID: 547780981}
+  - component: {fileID: 547780986}
+  - component: {fileID: 547780985}
+  - component: {fileID: 547780984}
+  - component: {fileID: 547780987}
   m_Layer: 0
-  m_Name: walk_0
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &547780981
 Animator:
   serializedVersion: 7
@@ -1200,12 +1235,96 @@ Transform:
   m_GameObject: {fileID: 547780980}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.9930325, y: 61.08, z: 41.615154}
+  m_LocalPosition: {x: -6.9930325, y: 61.08, z: 17.9}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 193620969}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!75 &547780984
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547780980}
+  m_Enabled: 1
+  m_Force: {x: 0, y: -40, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!54 &547780985
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547780980}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &547780986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547780980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9559a0209081e974c8be7f0e309e3f2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 159922082}
+  rb: {fileID: 1167985573}
+  moveSpeed: 15
+  jumpForce: 25
+  groundCheck: {fileID: 193620969}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  gems: 0
+  health: 3
+  animator: {fileID: 547780981}
+--- !u!65 &547780987
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547780980}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13, y: 0.14, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &557226695
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,11 +2237,11 @@ GameObject:
   - component: {fileID: 1167985575}
   m_Layer: 0
   m_Name: Temp Player
-  m_TagString: Player
+  m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1167985569
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2265,6 +2384,7 @@ MonoBehaviour:
     m_Bits: 8
   gems: 0
   health: 3
+  animator: {fileID: 0}
 --- !u!75 &1167985575
 ConstantForce:
   m_ObjectHideFlags: 0
@@ -2556,7 +2676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464d4307cd96e054c93673b921e546f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1167985574}
+  player: {fileID: 547780986}
   destination: {fileID: 1431252775}
 --- !u!135 &1465627382
 SphereCollider:
@@ -2694,7 +2814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464d4307cd96e054c93673b921e546f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1167985574}
+  player: {fileID: 547780986}
   destination: {fileID: 1465627385}
 --- !u!135 &1627227749
 SphereCollider:
@@ -3139,7 +3259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemRequirement: 4
-  player: {fileID: 1167985574}
+  player: {fileID: 547780986}
 --- !u!136 &1996746599
 CapsuleCollider:
   m_ObjectHideFlags: 0
