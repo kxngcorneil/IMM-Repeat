@@ -7,7 +7,7 @@ public class healthTracker : MonoBehaviour
 
     void Update()
     {
-        healthText.text = player.health.ToString();
+        healthText.text = "HEALTH: " + player.health.ToString();
     }
 
 }

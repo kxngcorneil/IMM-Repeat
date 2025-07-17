@@ -24,6 +24,7 @@ public class movingPlatform : MonoBehaviour
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
             timerForeward -= Time.deltaTime;
+            flipFirst();
         }
 
         // Once timerForeward is 0, platform starts moving backward
@@ -31,16 +32,26 @@ public class movingPlatform : MonoBehaviour
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
             timerBackward -= Time.deltaTime;
+           // flipSecond();
         }
         //Once both timers are 0 or less reset timers
         else if (timerForeward <= 0 && timerBackward <= 0)
         {
-            
+
             timerForeward = restartTime;
             timerBackward = restartTime;
 
         }
-        
-        
+    }
+
+    private void flipFirst()
+    {
+        transform.Rotate(0, 180, 0);
+    }
+
+    private void flipSecond()
+    {
+        transform.Rotate(0, -180, 0);
+
     }
 }

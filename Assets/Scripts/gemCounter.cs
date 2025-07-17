@@ -12,7 +12,7 @@ public class coinCount : MonoBehaviour
         if (player != null && coinCounter != null)
         {
             //Sets whatever coinCounter text is to the number of gems gems in the player script
-            coinCounter.text = player.gems.ToString();
+            coinCounter.text = "GEMS: " + player.gems.ToString();
         }
     }
 }
