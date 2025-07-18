@@ -3,12 +3,18 @@ using UnityEngine;
 
 public class movingPlatform : MonoBehaviour
 {
-    [SerializeField] private float speed = 2f; //Platform speed
+    [SerializeField] private float speed = 2f; 
 
-    [SerializeField] private float timerForeward = 0f;// Time to move forward
-    [SerializeField] private float timerBackward = 0f; // Time to move backward
+     private float timerForeward = 0f;
+     private float timerBackward = 0f; 
 
-    [SerializeField] private float restartTime = 2f; // Time to wait before restarting the movement
+    [SerializeField] private float restartTime = 2f; 
+
+    private bool faceRight;
+    private bool faceLeft;
+
+    private bool isMovingRight = true; 
+    private bool isMovingLeft = false; // Flag to check if the platform is moving left
 
     // Update is called once per frame
     void Update()
@@ -19,39 +25,40 @@ public class movingPlatform : MonoBehaviour
     private void movePlatform()
     {
 
-        // If timer bigger than 0 platform moves
+       
         if (timerForeward > 0)
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
             timerForeward -= Time.deltaTime;
-            flipFirst();
+            if (!isMovingRight)
+            {
+                isMovingRight = true;
+                isMovingLeft = false;
+           
+            }
         }
 
-        // Once timerForeward is 0, platform starts moving backward
+       
         else if (timerBackward > 0)
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
             timerBackward -= Time.deltaTime;
-           // flipSecond();
+            if (!isMovingLeft)
+            {
+                isMovingRight = false;
+                isMovingLeft = true;
+                
+            }
         }
-        //Once both timers are 0 or less reset timers
+       
         else if (timerForeward <= 0 && timerBackward <= 0)
         {
-
-            timerForeward = restartTime;
+          timerForeward = restartTime;
             timerBackward = restartTime;
 
         }
     }
 
-    private void flipFirst()
-    {
-        transform.Rotate(0, 180, 0);
-    }
-
-    private void flipSecond()
-    {
-        transform.Rotate(0, -180, 0);
-
-    }
+    
+   
 }

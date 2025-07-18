@@ -18,6 +18,7 @@ public class Portal : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             usePortal = true; 
+            player.mark.SetActive(true); // Show the portal marker when player is near
         }
         
     }
@@ -26,8 +27,9 @@ public class Portal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            
+
             usePortal = false; 
+            player.mark.SetActive(false); // Hide the portal marker when player is not near
         }
     }
 

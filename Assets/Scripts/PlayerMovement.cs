@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
+    public GameObject mark;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -62,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetInteger("Movement", 1);
         }
-        else if (horizontal == 0 && IsGrounded()) 
+        else if (horizontal == 0 && IsGrounded())
         {
             animator.SetInteger("Movement", 0);
         }
@@ -89,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Sprint()
     {
-        if (Input.GetKey(KeyCode.LeftShift)) 
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             moveSpeed = 25f; // Increase speed when sprinting
         }
@@ -103,14 +105,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Hazard"))
         {
-            
+
             transform.position = respawnPoint.position;
             health -= 1;
             Debug.Log("Player hit a bullet! Health: " + health);
 
-            
+
             // Reset velocity to prevent weird physics after teleport
             rb.linearVelocity = Vector3.zero;
         }
     }
+    
+    
 }
