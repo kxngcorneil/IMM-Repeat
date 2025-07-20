@@ -17,7 +17,6 @@ public class bulletFly : MonoBehaviour
         // Give the bullet an initial velocity to move right
         rb.linearVelocity = new Vector3(speed, 0, 0);
 
-        Debug.Log("Bullet spawned with velocity: " + rb.linearVelocity);
     }
     void Update()
     {

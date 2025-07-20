@@ -10,10 +10,6 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform respawnPoint; // Reference to the respawn point
     private float horizontal;
-
-    private bool getHit = false;
-    private float vertical;
-
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce = 5f;
@@ -39,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+       
         Sprint();
         Flip();
 

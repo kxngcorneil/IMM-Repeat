@@ -42,6 +42,6 @@ public class turret : MonoBehaviour
         
         // Both are assigned, fire the bullet
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Debug.Log("Bullet fired!");
+     
     }
 }
