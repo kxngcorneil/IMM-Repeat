@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
+            rb.linearVelocity = new Vector3(moveSpeed * rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
             animator.SetInteger("Movement", 2);
         }
 
@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Sprint()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && IsGrounded())
         {
             moveSpeed = 25f; // Increase speed when sprinting
         }
