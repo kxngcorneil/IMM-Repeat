@@ -2,16 +2,15 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class Timer : MonoBehaviour
 {
 
-    [SerializeField] private float timeRemaining = 60.0f;
+    [SerializeField] private float timeRemaining = 60.0f; // 60 seconds
 
-    [SerializeField] private float lowTime = 10.0f;
-
-    public Time time;
+    [SerializeField] private float lowTime = 10.0f; // Warning at 10 seconds
 
     public bool outofTime = false;
 
@@ -47,6 +46,7 @@ public class Timer : MonoBehaviour
         if (timeRemaining <= 0)
         {
             outofTime = true;
+            SceneManager.LoadScene("timeLoss");
         }
     }
 
