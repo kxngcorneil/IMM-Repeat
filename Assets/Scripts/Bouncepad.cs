@@ -6,7 +6,7 @@ public class Bouncepad : MonoBehaviour
 
 
     private void OnTriggerEnter(Collider other)
-    {
+    { //if player comes in contact with bounce pad add an upwards force relative to the varaible 
         if (other.CompareTag("Player"))
         {
 

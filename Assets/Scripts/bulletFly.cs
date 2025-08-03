@@ -14,13 +14,12 @@ public class bulletFly : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        // Give the bullet an initial velocity to move right
+        // bullet moves to the right according to the speed variable
         rb.linearVelocity = new Vector3(speed, 0, 0);
 
     }
     void Update()
     {
-        // Don't modify velocity here - let physics handle movement
 
         // Handle bullet lifetime
         lifetime -= Time.deltaTime;

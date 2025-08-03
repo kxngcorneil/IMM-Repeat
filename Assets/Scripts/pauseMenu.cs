@@ -13,7 +13,7 @@ public class pauseMenu : MonoBehaviour
     void Update()
     {
        
-        
+        //if escape key is pressed pause varaible switches depending on if the game was paused already of not
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Escape key pressed! GameIsPaused = " + GameIsPaused);
@@ -31,6 +31,7 @@ public class pauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        //if game was already pause we resume the game which unpauses the game and everything resu,es
          GameIsPaused = false;
         Debug.Log("Resume called" + GameIsPaused);
         pauseMenuUI.SetActive(false);
@@ -39,6 +40,7 @@ public class pauseMenu : MonoBehaviour
     }
     void Pause()
     {
+        //if the game wasnt paused previously we freeze the game and make it so the pause UI appears
         Time.timeScale = 0f;
         GameIsPaused = true;
         pauseMenuUI.SetActive(true);
@@ -52,6 +54,7 @@ public class pauseMenu : MonoBehaviour
 
     public void titleScreen()
     {
-               SceneManager.LoadScene("titleScreen");
+        //if exit button is pressed take player back to the title screen
+        SceneManager.LoadScene("titleScreen");
     }
 }

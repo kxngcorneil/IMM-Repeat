@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class sceneSwitch : MonoBehaviour
 {
-    [SerializeField] public string sceneName; // Now you can assign in Inspector
+    [SerializeField] public string sceneName; // Set the name of the scene you want to change to in the inspector
 
     void Start()
     {
@@ -13,6 +13,7 @@ public class sceneSwitch : MonoBehaviour
 
     public void changeScene()
     {
+        //When button is pressed it will load sceneName 
         SceneManager.LoadScene(sceneName);
     }
     

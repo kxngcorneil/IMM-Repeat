@@ -5,6 +5,7 @@ public class Gem : MonoBehaviour
    private PlayerMovement playerMovement;
     void Start()
     {
+        //calling the playermovement script 
         playerMovement = FindFirstObjectByType<PlayerMovement>();
     }
 
@@ -13,6 +14,7 @@ public class Gem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            //if player comes in contact with a gem increase the gemCounter varaible in the playerMovement script by 1 and destroy the gem object
             PlayerMovement player = other.GetComponent<PlayerMovement>();
             if (player != null)
             {

@@ -21,7 +21,7 @@ public class turret : MonoBehaviour
         //time is then added to next fire time to ensure a delay between shots 
         if (Time.time >= nextFireTime)
         {
-            Fire();
+                  Fire();
             nextFireTime = Time.time + fireRate;
         }
     }
@@ -40,7 +40,7 @@ public class turret : MonoBehaviour
             return;
         }
         
-        // Both are assigned, fire the bullet
+        // creates the bullet prefab 
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
      
     }

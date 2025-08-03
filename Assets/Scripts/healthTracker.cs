@@ -7,6 +7,7 @@ public class healthTracker : MonoBehaviour
 
     void Update()
     {
+        //reads playerHealth variable in the playerMovement script and reflect it through text
         healthText.text = "HEALTH: " + player.health.ToString();
     }
 

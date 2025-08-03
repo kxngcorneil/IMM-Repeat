@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         Sprint();
         Flip();
 
+        //if player pressed jump button while grounded apply jumpFoce to them so they go up
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.linearVelocity = new Vector3(moveSpeed * rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
@@ -54,13 +55,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
+    {   //if player is moving (so our horizontal input is -1 or 1) set out animation movement varaible to 1 indicating that the walking animiation should play
         rb.linearVelocity = new Vector3(horizontal * moveSpeed, rb.linearVelocity.y, rb.linearVelocity.z);
         if (horizontal != 0)
         {
             animator.SetInteger("Movement", 1);
         }
         else if (horizontal == 0 && IsGrounded())
+        //else if we have no input its set to 0 so we play the idle animation
         {
             animator.SetInteger("Movement", 0);
         }
@@ -79,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
+        //creat an invisible sphere at th ebottom of the player if its in contact with the ground layer we return the isGrounded boolean as true
         bool grounded = Physics.CheckSphere(groundCheck.position, 0.1f, groundLayer);
         animator.SetInteger("Movement", grounded ? 0 : 2);
         return grounded;
@@ -87,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Sprint()
     {
+        //if player is grounded and holds shift speed increases making them sprint 
         if (Input.GetKey(KeyCode.LeftShift) && IsGrounded())
         {
             moveSpeed = 25f; // Increase speed when sprinting
@@ -99,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //take one health away from player if they hit something with the hazard varaible
         if (other.CompareTag("Hazard"))
         {
 

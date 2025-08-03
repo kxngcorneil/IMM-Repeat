@@ -16,7 +16,7 @@ public class gemGoal : MonoBehaviour
     {
         if (player.gems >= gemRequirement)
         {
-            // If the player has collected enough gems, destroy the game object
+            // If the player has collected enough gems, destroy the game object which prevents player from reaching the gooal
             Destroy(gameObject);
         }
     }

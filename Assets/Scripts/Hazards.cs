@@ -10,7 +10,7 @@ public class Hazards : MonoBehaviour
         if (other.CompareTag("Player"))
         {
 
-            player.transform.position = respawnPoint.position;
+            player.transform.position = respawnPoint.position; //move the player back to the respawn point
             player.health -= 1; // Decrease player health by 1
             Debug.Log("Player hit a spike! Health: " + player.health);
 
