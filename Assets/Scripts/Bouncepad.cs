@@ -4,19 +4,16 @@ public class Bouncepad : MonoBehaviour
 {
     public float bounceForce = 10f;
 
-
     private void OnTriggerEnter(Collider other)
-    { //if player comes in contact with bounce pad add an upwards force relative to the varaible 
+    {
+        // If the player comes in contact with the bounce pad, add an upward force relative to the variable
         if (other.CompareTag("Player"))
         {
-
-
             Rigidbody rb = other.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 rb.linearVelocity = new Vector3(rb.linearVelocity.x, bounceForce, rb.linearVelocity.z);
             }
-
         }
     }
 }

@@ -7,6 +7,9 @@ public class Portal : MonoBehaviour
     public PlayerMovement player;
     [SerializeField] private Transform destination;
     private bool usePortal = false; 
+      [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip portalSound;
+   
 
     void Update()
     {
@@ -39,6 +42,7 @@ public class Portal : MonoBehaviour
         {
 
             player.transform.position = destination.position;
+            audioSource.PlayOneShot(portalSound); // Play portal sound
 
 
 

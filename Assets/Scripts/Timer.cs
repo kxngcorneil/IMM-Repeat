@@ -12,6 +12,12 @@ public class Timer : MonoBehaviour
 
     [SerializeField] private float lowTime = 10.0f; 
 
+      [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip lowTimeSound;
+
+    private bool musicPlayer = false;
+
+
     //set the running out of time boolean to false - changes one timer goes below lowTime variable
     public bool outofTime = false;
 
@@ -26,6 +32,7 @@ public class Timer : MonoBehaviour
         if (timeRemaining <= lowTime)
         {
             timeLower();
+            
         }
 
 
@@ -41,6 +48,13 @@ public class Timer : MonoBehaviour
         if (timeRemaining <= lowTime)
         {
             timerText.color = Color.red;
+
+            if (!audioSource.isPlaying && !musicPlayer)
+            {
+                audioSource.PlayOneShot(lowTimeSound); // Play the low time sound if it is not already playing and the flag is false
+                musicPlayer = true; // Set the flag to true to indicate that the sound is playing
+            }
+            
         }
     }
    

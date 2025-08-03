@@ -22,6 +22,11 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip walkSound;
+
+
     public GameObject mark;
 
     private void Start()
@@ -44,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector3(moveSpeed * rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
             animator.SetInteger("Movement", 2);
+            audioSource.PlayOneShot(jumpSound); // Play jump sound
+            audioSource.loop = false; // Set the audio source to not loop for jump sound
         }
 
         if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
@@ -60,6 +67,8 @@ public class PlayerMovement : MonoBehaviour
         if (horizontal != 0)
         {
             animator.SetInteger("Movement", 1);
+            audioSource.PlayOneShot(walkSound); // Play walk sound
+            audioSource.loop = true; // Set the audio source to loop for continuous sound
         }
         else if (horizontal == 0 && IsGrounded())
         //else if we have no input its set to 0 so we play the idle animation

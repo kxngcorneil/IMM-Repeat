@@ -3,25 +3,24 @@ using UnityEngine;
 
 public class turret : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletPrefab; 
-    [SerializeField] public Transform firePoint; 
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] public Transform firePoint;
 
-    [SerializeField] private float fireRate = 1f; 
-    private float nextFireTime = 0f; 
+    [SerializeField] private float fireRate = 1f;
+    private float nextFireTime = 0f;
 
     void Start()
     {
-       
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if time.time (which is the time since the game started) is greater than or equal to nextFireTime, then fire
-        //time is then added to next fire time to ensure a delay between shots 
+        // If Time.time (the time since the game started) is greater than or equal to nextFireTime, then fire.
+        // Time is then added to nextFireTime to ensure a delay between shots.
         if (Time.time >= nextFireTime)
         {
-                  Fire();
+            Fire();
             nextFireTime = Time.time + fireRate;
         }
     }
@@ -30,18 +29,17 @@ public class turret : MonoBehaviour
     {
         if (bulletPrefab == null)
         {
-            Debug.LogError("Bullet Prefab is not assigned in Inspector!");
+            Debug.LogError("Bullet Prefab is not assigned in the Inspector!");
             return;
         }
-        
+
         if (firePoint == null)
         {
-            Debug.LogError("Fire Point is not assigned in Inspector!");
+            Debug.LogError("Fire Point is not assigned in the Inspector!");
             return;
         }
-        
-        // creates the bullet prefab 
+
+        // Creates the bullet prefab
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-     
     }
 }

@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class gemGoal : MonoBehaviour
 {
-
     [SerializeField] public float gemRequirement = 5;
-    
-      public PlayerMovement player;
+
+    public PlayerMovement player;
+
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -16,7 +15,7 @@ public class gemGoal : MonoBehaviour
     {
         if (player.gems >= gemRequirement)
         {
-            // If the player has collected enough gems, destroy the game object which prevents player from reaching the gooal
+            // If the player has collected enough gems, destroy the game object to allow access to the goal
             Destroy(gameObject);
         }
     }

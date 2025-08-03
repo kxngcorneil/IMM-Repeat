@@ -14,7 +14,7 @@ public class quitGame : MonoBehaviour
       
     }
 
-    public void quitApplication() // Made public for button OnClick
+    public void quitApplication()
     {
         
         Application.Quit();

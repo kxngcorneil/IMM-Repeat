@@ -2958,7 +2958,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 716305139}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3384,6 +3384,9 @@ MonoBehaviour:
   gems: 0
   health: 3
   animator: {fileID: 547780981}
+  audioSource: {fileID: 0}
+  jumpSound: {fileID: 0}
+  walkSound: {fileID: 0}
   mark: {fileID: 641371202}
 --- !u!65 &547780987
 BoxCollider:
@@ -4490,12 +4493,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1606410977}
   - {fileID: 1336066385}
   - {fileID: 264492280}
   - {fileID: 938637039}
   - {fileID: 512461834}
   - {fileID: 1917164089}
+  - {fileID: 1606410977}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

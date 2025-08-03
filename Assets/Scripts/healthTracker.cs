@@ -3,13 +3,11 @@ using UnityEngine;
 public class healthTracker : MonoBehaviour
 {
     public PlayerMovement player; // Reference to the PlayerMovement script
-    public TMPro.TextMeshProUGUI healthText; // Reference to the TextMeshProUG
+    public TMPro.TextMeshProUGUI healthText; // Reference to the TextMeshProUGUI
 
     void Update()
     {
-        //reads playerHealth variable in the playerMovement script and reflect it through text
+        // Reads the playerHealth variable in the PlayerMovement script and reflects it through the text
         healthText.text = "HEALTH: " + player.health.ToString();
     }
-
 }
-

@@ -10,7 +10,10 @@ public class cameraFollow : MonoBehaviour
 
     private void Update()
     {
+        // Calculate the target position by adding the offset to the target's position
         Vector3 targetPosition = target.position + offset;
+
+        // Smoothly move the camera to the target position
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
 }
