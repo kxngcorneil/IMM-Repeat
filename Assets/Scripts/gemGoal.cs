@@ -3,6 +3,8 @@ using UnityEngine;
 public class gemGoal : MonoBehaviour
 {
     [SerializeField] public float gemRequirement = 5;
+      [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip gemGoalSound;
 
     public PlayerMovement player;
 
@@ -17,6 +19,7 @@ public class gemGoal : MonoBehaviour
         {
             // If the player has collected enough gems, destroy the game object to allow access to the goal
             Destroy(gameObject);
+            audioSource.PlayOneShot(gemGoalSound);
         }
     }
 }

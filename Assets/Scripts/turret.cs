@@ -9,6 +9,9 @@ public class turret : MonoBehaviour
     [SerializeField] private float fireRate = 1f;
     private float nextFireTime = 0f;
 
+      [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip fireSound;
+
     void Start()
     {
     }
@@ -22,6 +25,7 @@ public class turret : MonoBehaviour
         {
             Fire();
             nextFireTime = Time.time + fireRate;
+            audioSource.PlayOneShot(fireSound);
         }
     }
 

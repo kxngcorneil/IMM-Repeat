@@ -3,6 +3,8 @@ using UnityEngine;
 public class Bouncepad : MonoBehaviour
 {
     public float bounceForce = 10f;
+      [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip bounceSound;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,6 +15,7 @@ public class Bouncepad : MonoBehaviour
             if (rb != null)
             {
                 rb.linearVelocity = new Vector3(rb.linearVelocity.x, bounceForce, rb.linearVelocity.z);
+                audioSource.PlayOneShot(bounceSound);
             }
         }
     }

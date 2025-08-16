@@ -8,14 +8,14 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
     //Initialize the countdown and lowTime (Able to change in inspectator)
-    [SerializeField] private float timeRemaining = 60.0f; 
+    [SerializeField] public float timeRemaining = 60.0f; 
 
-    [SerializeField] private float lowTime = 10.0f; 
+    [SerializeField] public float lowTime = 10.0f; 
 
       [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip lowTimeSound;
 
-    private bool musicPlayer = false;
+    public bool musicPlayer = false;
 
 
     //set the running out of time boolean to false - changes one timer goes below lowTime variable

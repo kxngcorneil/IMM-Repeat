@@ -18,13 +18,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] public float gems = 0f;
 
-    [SerializeField] public float health = 3f;
+    [SerializeField] public float health = 5f;
 
     [SerializeField] private Animator animator;
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip jumpSound;
     [SerializeField] private AudioClip walkSound;
+    [SerializeField] private AudioClip deathSound;
 
 
     public GameObject mark;
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        health = 5f; // Initialize health
 
 
 
@@ -49,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector3(moveSpeed * rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
             animator.SetInteger("Movement", 2);
+
             audioSource.PlayOneShot(jumpSound); // Play jump sound
             audioSource.loop = false; // Set the audio source to not loop for jump sound
         }
@@ -67,8 +70,14 @@ public class PlayerMovement : MonoBehaviour
         if (horizontal != 0)
         {
             animator.SetInteger("Movement", 1);
-            audioSource.PlayOneShot(walkSound); // Play walk sound
-            audioSource.loop = true; // Set the audio source to loop for continuous sound
+
+            while (!audioSource.isPlaying && IsGrounded())
+            {
+                audioSource.PlayOneShot(walkSound); // Play walk sound if not already playing
+                audioSource.loop = true; // Set the audio source to loop for walk sound
+            }
+    
+                
         }
         else if (horizontal == 0 && IsGrounded())
         //else if we have no input its set to 0 so we play the idle animation
@@ -116,13 +125,15 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Hazard"))
         {
 
+
             transform.position = respawnPoint.position;
             health -= 1;
             Debug.Log("Player hit a bullet! Health: " + health);
+            audioSource.PlayOneShot(deathSound); // Play death sound 
 
 
             // Reset velocity to prevent weird physics after teleport
-            rb.linearVelocity = Vector3.zero;
+        //    rb.linearVelocity = Vector3.zero;
         }
     }
     

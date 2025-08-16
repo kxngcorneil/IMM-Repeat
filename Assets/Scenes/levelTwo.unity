@@ -245,6 +245,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &20958818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 20958819}
+  m_Layer: 0
+  m_Name: Sounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &20958819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20958818}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 825188622}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &25186107
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,6 +349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 547780986}
   destination: {fileID: 2118055693}
+  audioSource: {fileID: 825188623}
+  portalSound: {fileID: 8300000, guid: 21b18d4995f711f46b4f12cff5aacaa8, type: 3}
 --- !u!95 &25186111
 Animator:
   serializedVersion: 7
@@ -464,6 +498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d403a8d1311b748afdd92832c34001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  gemCollect: {fileID: 0}
 --- !u!95 &54869351
 Animator:
   serializedVersion: 7
@@ -611,6 +647,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d403a8d1311b748afdd92832c34001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  gemCollect: {fileID: 0}
 --- !u!95 &78826831
 Animator:
   serializedVersion: 7
@@ -774,6 +812,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d403a8d1311b748afdd92832c34001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  gemCollect: {fileID: 0}
 --- !u!95 &82140906
 Animator:
   serializedVersion: 7
@@ -1450,6 +1490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d403a8d1311b748afdd92832c34001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  gemCollect: {fileID: 0}
 --- !u!95 &247982995
 Animator:
   serializedVersion: 7
@@ -1969,6 +2011,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d403a8d1311b748afdd92832c34001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  gemCollect: {fileID: 0}
 --- !u!95 &307005850
 Animator:
   serializedVersion: 7
@@ -2282,6 +2326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d403a8d1311b748afdd92832c34001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  gemCollect: {fileID: 0}
 --- !u!95 &333775351
 Animator:
   serializedVersion: 7
@@ -2429,6 +2475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d403a8d1311b748afdd92832c34001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  gemCollect: {fileID: 0}
 --- !u!95 &336832174
 Animator:
   serializedVersion: 7
@@ -2730,6 +2778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d403a8d1311b748afdd92832c34001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  gemCollect: {fileID: 0}
 --- !u!95 &421949512
 Animator:
   serializedVersion: 7
@@ -2840,6 +2890,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 40
+  audioSource: {fileID: 825188623}
+  bounceSound: {fileID: 8300000, guid: e6f85694f2aac81499fefd80c80c002d, type: 3}
 --- !u!135 &457880846
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3384,9 +3436,10 @@ MonoBehaviour:
   gems: 0
   health: 3
   animator: {fileID: 547780981}
-  audioSource: {fileID: 0}
-  jumpSound: {fileID: 0}
-  walkSound: {fileID: 0}
+  audioSource: {fileID: 825188623}
+  jumpSound: {fileID: 8300000, guid: 265c7b1a19cb1304f9dfa66658e6362a, type: 3}
+  walkSound: {fileID: 8300000, guid: 87f2cdd3361e4e542bb6502bd884b772, type: 3}
+  deathSound: {fileID: 0}
   mark: {fileID: 641371202}
 --- !u!65 &547780987
 BoxCollider:
@@ -3795,6 +3848,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 547780986}
   destination: {fileID: 871180067}
+  audioSource: {fileID: 825188623}
+  portalSound: {fileID: 8300000, guid: 21b18d4995f711f46b4f12cff5aacaa8, type: 3}
 --- !u!95 &600325008
 Animator:
   serializedVersion: 7
@@ -4067,6 +4122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d403a8d1311b748afdd92832c34001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  gemCollect: {fileID: 0}
 --- !u!95 &642137215
 Animator:
   serializedVersion: 7
@@ -4399,6 +4456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d403a8d1311b748afdd92832c34001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  gemCollect: {fileID: 0}
 --- !u!1 &716305135
 GameObject:
   m_ObjectHideFlags: 0
@@ -4729,6 +4788,135 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818240077}
   m_CullTransparentMesh: 1
+--- !u!1 &825188621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 825188622}
+  - component: {fileID: 825188623}
+  m_Layer: 0
+  m_Name: audioSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &825188622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825188621}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 20958819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &825188623
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825188621}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &829895338
 GameObject:
   m_ObjectHideFlags: 0
@@ -5010,6 +5198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d403a8d1311b748afdd92832c34001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  gemCollect: {fileID: 0}
 --- !u!95 &858747452
 Animator:
   serializedVersion: 7
@@ -5136,6 +5326,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 547780986}
   destination: {fileID: 600325010}
+  audioSource: {fileID: 825188623}
+  portalSound: {fileID: 8300000, guid: 21b18d4995f711f46b4f12cff5aacaa8, type: 3}
 --- !u!95 &871180069
 Animator:
   serializedVersion: 7
@@ -5597,8 +5789,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b355233e3f2a0d49ab07d1f447a30f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 60
-  lowTime: 55
+  timeRemaining: 200
+  lowTime: 60
+  audioSource: {fileID: 825188623}
+  lowTimeSound: {fileID: 8300000, guid: 9fcb239f1ca139d45aa4daa10ccb7ed2, type: 3}
   outofTime: 0
   timerText: {fileID: 938637041}
 --- !u!114 &938637041
@@ -6283,6 +6477,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d403a8d1311b748afdd92832c34001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  gemCollect: {fileID: 0}
 --- !u!95 &1090236147
 Animator:
   serializedVersion: 7
@@ -6854,6 +7050,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d403a8d1311b748afdd92832c34001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  gemCollect: {fileID: 0}
 --- !u!95 &1290431152
 Animator:
   serializedVersion: 7
@@ -7152,6 +7350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d403a8d1311b748afdd92832c34001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  gemCollect: {fileID: 0}
 --- !u!95 &1330738367
 Animator:
   serializedVersion: 7
@@ -7258,6 +7458,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5975ec53109d67541adab64d6be350aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 825188623}
+  menuIn: {fileID: 8300000, guid: 2a01b7a58eb0f9345b140f0faf07b216, type: 3}
+  menuOut: {fileID: 8300000, guid: 541ad8409853c2644ab44b1f851ec8a5, type: 3}
   pauseMenuUI: {fileID: 1606410974}
 --- !u!4 &1336066385
 Transform:
@@ -8107,6 +8310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d403a8d1311b748afdd92832c34001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  gemCollect: {fileID: 0}
 --- !u!95 &1576208415
 Animator:
   serializedVersion: 7
@@ -8622,6 +8827,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d403a8d1311b748afdd92832c34001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  gemCollect: {fileID: 0}
 --- !u!95 &1683887027
 Animator:
   serializedVersion: 7
@@ -9208,6 +9415,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemRequirement: 11
+  audioSource: {fileID: 825188623}
+  gemGoalSound: {fileID: 8300000, guid: 8da0e8eb489eb354ea3397b6778bd4e0, type: 3}
   player: {fileID: 547780986}
 --- !u!4 &1996746602
 Transform:
@@ -9603,6 +9812,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7065186784996415745, guid: 23e5078cecf9dfd4bb23e3dc0e36cdad, type: 3}
   firePoint: {fileID: 81915770}
   fireRate: 4
+  audioSource: {fileID: 0}
+  fireSound: {fileID: 0}
 --- !u!65 &2086898426
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9696,6 +9907,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 547780986}
   destination: {fileID: 25186108}
+  audioSource: {fileID: 825188623}
+  portalSound: {fileID: 8300000, guid: 21b18d4995f711f46b4f12cff5aacaa8, type: 3}
 --- !u!95 &2118055696
 Animator:
   serializedVersion: 7
@@ -9887,3 +10100,4 @@ SceneRoots:
   - {fileID: 758277549}
   - {fileID: 457880849}
   - {fileID: 206396669}
+  - {fileID: 20958819}

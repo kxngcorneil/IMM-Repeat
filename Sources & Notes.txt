@@ -1,0 +1,42 @@
+After doing the interactive multimedia module I became interested in Unity in my own free time. As such some code is in my own style since I've found methods I prefer as opposed to the module. To be cautious though I've gone back and attempted to list videos that helped me as I was learning in my own time, alongside screenshots to prove that the submitted assignment is a product of my work and my work alone
+I can also assure you that even though some code may be similar to tutorials I've seen in the passed I have not copied anything one for one and all code is done uniquely in my own style.
+I can also confirm that I 100% understand all the code I have typed below and explained in the attached video where I explain it all.
+
+Assest Sources
+Coin;
+https://opengameart.org/content/spinning-coin-0
+
+Portal:
+https://elthen.itch.io/2d-pixel-art-portal-sprites
+
+Spikes:
+https://omniclause.itch.io/spikes
+
+Background:
+https://saurabhkgp.itch.io/pixel-art-forest-background-simple-seamless-parallax-ready-for-2d-platformer-s?download
+(Slight changes done by me)
+
+Flag:
+https://ankousse26.itch.io/free-flag-with-animation
+
+Snake enemy:
+https://hexany-ives.itch.io/hexanys-roguelike-tiles
+
+Font:
+https://www.dafont.com/daydream-3.font
+
+Turret:
+https://www.123rf.com/free-vector_189705989_game-turret.html
+(Slgiht changes done by me)
+
+Bullet:
+https://dinopixel.com/bullet-pixel-art-42595
+(Slight changes done by me)
+
+Exclamation mark
+https://en.ac-illust.com/clip-art/25963614/exclamation-mark--pixel-art-
+
+Unity Help
+
+https://youtu.be/AdQz2wStdLY
+
