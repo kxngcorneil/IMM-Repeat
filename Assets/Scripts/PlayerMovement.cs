@@ -1,14 +1,14 @@
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    private bool isFacingRight = true;
-
-    public Transform respawnPoint; // Reference to the respawn point
+    public Transform respawnPoint;
     private float horizontal;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float moveSpeed;
@@ -18,7 +18,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] public float gems = 0f;
 
-    [SerializeField] public float health = 5f;
+    [SerializeField] public float health;
+    [SerializeField] private Toggle healthToggle; 
 
     [SerializeField] private Animator animator;
 
@@ -27,24 +28,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip walkSound;
     [SerializeField] private AudioClip deathSound;
 
+    private Toggle toggle;
+
 
     public GameObject mark;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        health = 5f; // Initialize health
-
-
-
+        health = 5f; 
+        
+      
     }
 
     private void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
-       
+
         Sprint();
         Flip();
+        noHealth();
 
         //if player pressed jump button while grounded apply jumpFoce to them so they go up
         if (Input.GetButtonDown("Jump") && IsGrounded())
@@ -52,56 +55,65 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = new Vector3(moveSpeed * rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
             animator.SetInteger("Movement", 2);
 
-            audioSource.PlayOneShot(jumpSound); // Play jump sound
-            audioSource.loop = false; // Set the audio source to not loop for jump sound
-        }
-
-        if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
-        {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f, rb.linearVelocity.z);
+            audioSource.PlayOneShot(jumpSound); 
+            audioSource.loop = false; 
         }
 
 
     }
 
     private void FixedUpdate()
-    {   //if player is moving (so our horizontal input is -1 or 1) set out animation movement varaible to 1 indicating that the walking animiation should play
+    {   //if player is moving set out animation movement varaible to 1 indicating that the walking animiation should play
         rb.linearVelocity = new Vector3(horizontal * moveSpeed, rb.linearVelocity.y, rb.linearVelocity.z);
         if (horizontal != 0)
         {
             animator.SetInteger("Movement", 1);
 
-            while (!audioSource.isPlaying && IsGrounded())
+            if (!audioSource.isPlaying && IsGrounded())
             {
-                audioSource.PlayOneShot(walkSound); // Play walk sound if not already playing
-                audioSource.loop = true; // Set the audio source to loop for walk sound
+                audioSource.PlayOneShot(walkSound);
+                audioSource.loop = true; 
             }
-    
-                
+
+
         }
         else if (horizontal == 0 && IsGrounded())
         //else if we have no input its set to 0 so we play the idle animation
         {
             animator.SetInteger("Movement", 0);
+            audioSource.loop = false; // Stop looping walk sound when idle
+            audioSource.Stop(); // Stop walk sound when idle 
         }
+
     }
 
     private void Flip()
     {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        if (horizontal > 0f) // Moving right
         {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            transform.localScale = new Vector3(20f, 20f, 20f); // Face right
         }
+        else if (horizontal < 0f) // Moving left
+        {
+            transform.localScale = new Vector3(-20f, 20f, 20f); // Face left
+        }
+       
     }
 
     private bool IsGrounded()
     {
         //creat an invisible sphere at th ebottom of the player if its in contact with the ground layer we return the isGrounded boolean as true
         bool grounded = Physics.CheckSphere(groundCheck.position, 0.1f, groundLayer);
-        animator.SetInteger("Movement", grounded ? 0 : 2);
+        
+        if (grounded)
+        {
+            animator.SetInteger("Movement", 0);
+        }
+        else
+        {
+            animator.SetInteger("Movement", 2);
+        }
+        
         return grounded;
     }
 
@@ -119,6 +131,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void noHealth()
+    {
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("noLives");
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         //take one health away from player if they hit something with the hazard varaible
@@ -129,13 +149,17 @@ public class PlayerMovement : MonoBehaviour
             transform.position = respawnPoint.position;
             health -= 1;
             Debug.Log("Player hit a bullet! Health: " + health);
-            audioSource.PlayOneShot(deathSound); // Play death sound 
+            audioSource.PlayOneShot(deathSound); 
 
 
-            // Reset velocity to prevent weird physics after teleport
-        //    rb.linearVelocity = Vector3.zero;
+        
         }
     }
+    
+  
+    
+    
+
     
     
 }

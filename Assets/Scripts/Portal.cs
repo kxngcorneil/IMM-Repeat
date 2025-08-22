@@ -30,9 +30,9 @@ public class Portal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
+             // Hide the "!" when player is not near
             usePortal = false; 
-            player.mark.SetActive(false); // Hide the portal marker when player is not near
+            player.mark.SetActive(false);
         }
     }
 
@@ -42,7 +42,7 @@ public class Portal : MonoBehaviour
         {
 
             player.transform.position = destination.position;
-            audioSource.PlayOneShot(portalSound); // Play portal sound
+            audioSource.PlayOneShot(portalSound); 
 
 
 

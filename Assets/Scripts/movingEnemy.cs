@@ -10,9 +10,6 @@ public class movingEnemy : MonoBehaviour
 
     [SerializeField] private float restartTime = 2f; 
 
-    private bool faceRight;
-    private bool faceLeft;
-
     private bool isMovingRight = true; 
     private bool isMovingLeft = false; // Flag to check if the platform is moving left
 

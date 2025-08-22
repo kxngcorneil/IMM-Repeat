@@ -4,10 +4,10 @@ using TMPro;
 public class objectiveText : MonoBehaviour
 {
     public PlayerMovement player;
-    public gemGoal requiredGems; // Reference to the gemGoal script
+    public gemGoal requiredGems; 
 
     private float gemDifference;
-    public TextMeshProUGUI objectiveTextUI; // Reference to the UI Text component
+    public TextMeshProUGUI objectiveTextUI; 
 
     void Start()
     {
@@ -21,7 +21,7 @@ public class objectiveText : MonoBehaviour
 
         if (player.gems < requiredGems.gemRequirement)
         {
-            // Use that difference to indicate to the player how many more gems are needed to beat the level
+            // Use that difference to tell player how many more is needed
             objectiveTextUI.text = "Collect " + gemDifference + " more gems";
         }
         else

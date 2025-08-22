@@ -34,7 +34,6 @@ public class pauseMenu : MonoBehaviour
     {
         // If the game was already paused, we resume the game, unpausing it and resuming all activity
         GameIsPaused = false;
-        Debug.Log("Resume called. GameIsPaused = " + GameIsPaused);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         audioSource.PlayOneShot(menuOut);

@@ -8,8 +8,7 @@ public class turret : MonoBehaviour
 
     [SerializeField] private float fireRate = 1f;
     private float nextFireTime = 0f;
-
-      [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip fireSound;
 
     void Start()
@@ -31,17 +30,7 @@ public class turret : MonoBehaviour
 
     private void Fire()
     {
-        if (bulletPrefab == null)
-        {
-            Debug.LogError("Bullet Prefab is not assigned in the Inspector!");
-            return;
-        }
-
-        if (firePoint == null)
-        {
-            Debug.LogError("Fire Point is not assigned in the Inspector!");
-            return;
-        }
+       
 
         // Creates the bullet prefab
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);

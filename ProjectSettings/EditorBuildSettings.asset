@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/tutorialScreen.unity
     guid: e22b15e6890065f4f85c212708ef743c
   - enabled: 1
-    path: Assets/Scenes/gameOver.unity
+    path: Assets/Scenes/noLives.unity
     guid: e8d83073d46e22e4580ded7856485f9b
   - enabled: 1
     path: Assets/Scenes/levelSelect.unity
@@ -26,6 +26,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/levelBeat.unity
     guid: db4b0d04a31aefe4597554aea4acfec1
+  - enabled: 1
+    path: Assets/Scenes/levelThree.unity
+    guid: 73b901d331d17754aa3ca5677f197be1
+  - enabled: 1
+    path: Assets/Scenes/optionsScreen.unity
+    guid: a5effa3672e091442a9e5917ee95885c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -14,7 +14,7 @@ public class speedUp : MonoBehaviour
 
         if (timer.timeRemaining <= timer.lowTime)
         {
-            musicSource.pitch = 1.8f; // Speed up the music when the timer is running low
+            musicSource.pitch = 1.1f; // Speed up the music when the timer is running low
         }
         else
         {
