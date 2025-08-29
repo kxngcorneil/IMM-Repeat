@@ -45,15 +45,31 @@ https://www.youtube.com/watch?v=YiJaxzcfKBM
 All other SFX from:
 https://www.mariomayhem.com/downloads/sounds/new_super_mario_bros_wii_sound_effects.php
 
+Game over Music:
+https://youtu.be/_KR-LMSWSdA?list=RD_KR-LMSWSdA
+
+Victory Music:
+https://youtu.be/rgUksX6eM0Y?list=RDrgUksX6eM0Y
+
+All other music made by me in Bandlab
+
 Unity Help
 
+Animator Help:
 https://youtu.be/AdQz2wStdLY
 
-https://youtu.be/AdQz2wStdLY
-
+Toggle Help
 https://docs.unity3d.com/2019.1/Documentation/ScriptReference/UI.Toggle-isOn.html
 
+Referencing Help
 https://discussions.unity.com/t/change-var-value-in-another-script/741334/4
 
+Pause Menu Help
 https://www.youtube.com/watch?v=qjgZTVEUqgo
+
+Camera Help
+https://www.youtube.com/watch?v=ZBj3LBA2vUY
+
+Movement Help 
+https://www.youtube.com/watch?v=K1xZ-rycYY8
 
